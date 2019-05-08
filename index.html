@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Benjamin Cano Planes</title>
+    <meta charset="utf-8"/>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans:300,400,600" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+    <div class="content">
+  <div class="page" id="main">
+    <img class="pdf" src="images/Projet-7-1.jpg" alt="">
+    <div class="sidebar">
+      <div class="bio_s">BIOGRAPHIE</div>
+      <br>
+      <div class="press_s">PRESSE</div>
+      <br>
+      <div class="show_s">TELE/SHOWS</div>
+      <br>
+      <div class="contact_s">CONTACT</div>
+    </div>
+
+  </div>
+<div class="to-hide hidden">
+
+  <div id="btn">
+      <div id='top'></div>
+      <div id='middle'></div>
+      <div id='bottom'></div>
+    </div>
+    <div id="box">
+      <div id="items">
+          <div class="item bio_s">BIOGRAPHIE</div>
+          <div class="item press_s">PRESSE</div>
+          <div class="item show_s">TELE/SHOWS</div>
+          <div class="item contact_s">CONTACT</div>
+      </div>
+    </div>
+
+</div>
+
+
+  <div class="page hidden" id="bio">
+    <img class="pdf" src="images/bio-1.jpg" alt="">
+
+    <!-- <div class="sidebar-press">
+      <div class="bio_s">BIOGRAPHIE</div>
+      <br>
+      <div class="press_s">PRESSE</div>
+      <br>
+      <div class="show_s"><%#= 'télé'.upcase %>/SHOWS</div>
+      <br>
+      <div class="contact_s">CONTACT</div>
+    </div> -->
+  </div>
+
+  <div class="page hidden" id="contact">
+    <img class="pdf" src="images/contact.jpg" alt="">
+   <!--  <div class="sidebar-press">
+      <div class="bio_s">BIOGRAPHIE</div>
+      <br>
+      <div class="press_s">PRESSE</div>
+      <br>
+      <div class="show_s">TELE/SHOWS</div>
+      <br>
+      <div class="contact_s">CONTACT</div>
+    </div> -->
+  </div>
+
+<div class="press-container hidden">
+
+  <div class="page hidden press" >
+    <img class="pdf" src="images/press1.jpg" alt="">
+  </div>
+
+  <div class="page hidden press" >
+    <img class="pdf" src="images/press2.jpg" alt="">
+  </div>
+
+  <div class="page hidden press" >
+    <img class="pdf" src="images/press3.jpg" alt="">
+  </div>
+
+  <div class="page hidden press" >
+    <img class="pdf" src="images/press4.jpg" alt="">
+  </div>
+
+  <div class="page hidden press" >
+    <img class="pdf" src="images/press5.jpg" alt="">
+  </div>
+
+  <!-- <div class="sidebar-press ">
+      <div class="bio_s">BIOGRAPHIE</div>
+      <br>
+      <div class="press_s">PRESSE</div>
+      <br>
+      <div class="show_s">TELE/SHOWS</div>
+      <br>
+      <div class="contact_s">CONTACT</div>
+    </div> -->
+</div>
+
+</div>
+
+<script>
+  const scroll = () => {
+  const pages = document.querySelectorAll(".page")
+  const main = document.querySelector('#main');
+  const bio = document.querySelector('#bio');
+  const press = document.querySelectorAll('.press');
+  // const show = document.querySelector('#show');
+  const contact = document.querySelector('#contact');
+
+  const bio_b = document.querySelectorAll('.bio_s');
+  const press_b = document.querySelectorAll('.press_s');
+  const show_b = document.querySelectorAll('.show_s');
+  const contact_b = document.querySelectorAll('.contact_s');
+
+  bio_b.forEach((b) => {
+    b.addEventListener('click', () => {
+      pages.forEach((p) => {
+        p.classList.add('hidden');
+      })
+      document.querySelector('.press-container').classList.add('hidden');
+      document.querySelector('.to-hide').classList.remove('hidden');
+      bio.scrollIntoView();
+      bio.classList.remove("hidden");
+    })
+  })
+
+  contact_b.forEach((b) => {
+    b.addEventListener('click', () => {
+      pages.forEach((p) => {
+        p.classList.add('hidden');
+      })
+      document.querySelector('.to-hide').classList.remove('hidden');
+      document.querySelector('.press-container').classList.add('hidden');
+      contact.scrollIntoView();
+      contact.classList.remove("hidden");
+    })
+  })
+
+  press_b.forEach((b) => {
+    b.addEventListener('click', () => {
+      pages.forEach((p) => {
+        p.classList.add('hidden');
+      })
+      document.querySelector('.to-hide').classList.remove('hidden');
+      document.querySelector('.press-container').classList.remove('hidden');
+      press.forEach((pr) => {
+        pr.classList.remove("hidden");
+      })
+    })
+  })
+
+  // show_b.forEach((b) => {
+  //   b.addEventListener('click', () => {
+  //     pages.forEach((p) => {
+  //       p.classList.add('hidden');
+  //     })
+  //     document.querySelector('.press-container').classList.add('hidden');
+  //     show.scrollIntoView();
+  //     show.classList.remove("hidden");
+  //   })
+  // })
+}
+
+scroll();
+</script>
+<!--
+
+ <div id="page-wrapper">
+    <div id="title">Sidebar Interaction</div>
+</div>
+
+
+<div id="btn">
+    <div id='top'></div>
+    <div id='middle'></div>
+    <div id='bottom'></div>
+</div>
+<div id="box">
+    <div id="items">
+        <div class="item">Item 1</div>
+        <div class="item">Item 2</div>
+        <div class="item">Item 3</div>
+        <div class="item">Item 4</div>
+        <div class="item">Item 5</div>
+    </div>
+</div> -->
+
+
+<script>
+  const sidebarBox = document.querySelector('#box'),
+    sidebarBtn = document.querySelector('#btn'),
+    pageWrapper = document.querySelector('#page-wrapper');
+
+sidebarBtn.addEventListener('click', event => {
+    sidebarBtn.classList.toggle('active');
+    sidebarBox.classList.toggle('active');
+});
+
+pageWrapper.addEventListener('click', event => {
+
+    if (sidebarBox.classList.contains('active')) {
+        sidebarBtn.classList.remove('active');
+        sidebarBox.classList.remove('active');
+    }
+});
+
+window.addEventListener('keydown', event => {
+
+    if (sidebarBox.classList.contains('active') && event.keyCode === 27) {
+        sidebarBtn.classList.remove('active');
+        sidebarBox.classList.remove('active');
+    }
+});
+</script>
+
+
+
+  </body>
+</html>
