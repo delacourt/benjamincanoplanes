@@ -16,6 +16,26 @@
   <body>
 
     <div class="content">
+<div class="to-hide hidden">
+
+  <div id="btn">
+      <div id='top'></div>
+      <div id='middle'></div>
+      <div id='bottom'></div>
+    </div>
+    <div id="box">
+      <div id="items">
+          <div class="item main_s">HOME</div>
+          <div class="item bio_s">BIOGRAPHIE</div>
+          <div class="item press_s">PRESSE</div>
+          <div class="item show_s">TELE/SHOWS</div>
+          <div class="item contact_s">CONTACT</div>
+      </div>
+    </div>
+
+</div>
+      <div id="page_wrapper">
+
   <div class="page" id="main">
     <img class="pdf" src="images/Projet-7-1.jpg" alt="">
     <div class="sidebar">
@@ -29,23 +49,6 @@
     </div>
 
   </div>
-<div class="to-hide hidden">
-
-  <div id="btn">
-      <div id='top'></div>
-      <div id='middle'></div>
-      <div id='bottom'></div>
-    </div>
-    <div id="box">
-      <div id="items">
-          <div class="item bio_s">BIOGRAPHIE</div>
-          <div class="item press_s">PRESSE</div>
-          <div class="item show_s">TELE/SHOWS</div>
-          <div class="item contact_s">CONTACT</div>
-      </div>
-    </div>
-
-</div>
 
 
   <div class="page hidden" id="bio">
@@ -108,6 +111,9 @@
     </div> -->
 </div>
 
+      </div>
+
+
 </div>
 
 <script>
@@ -120,9 +126,22 @@
   const contact = document.querySelector('#contact');
 
   const bio_b = document.querySelectorAll('.bio_s');
+  const main_b = document.querySelectorAll('.main_s');
   const press_b = document.querySelectorAll('.press_s');
   const show_b = document.querySelectorAll('.show_s');
   const contact_b = document.querySelectorAll('.contact_s');
+
+  main_b.forEach((b) => {
+    b.addEventListener('click', () => {
+      pages.forEach((p) => {
+        p.classList.add('hidden');
+      })
+      document.querySelector('.press-container').classList.add('hidden');
+      document.querySelector('.to-hide').classList.add('hidden');
+      main.scrollIntoView();
+      main.classList.remove("hidden");
+    })
+  })
 
   bio_b.forEach((b) => {
     b.addEventListener('click', () => {
@@ -173,6 +192,8 @@
   // })
 }
 
+
+
 scroll();
 </script>
 <!--
@@ -208,13 +229,14 @@ sidebarBtn.addEventListener('click', event => {
     sidebarBox.classList.toggle('active');
 });
 
-pageWrapper.addEventListener('click', event => {
+// pageWrapper.addEventListener('click', event => {
+//   console.log("sdfbnhgfd")
 
-    if (sidebarBox.classList.contains('active')) {
-        sidebarBtn.classList.remove('active');
-        sidebarBox.classList.remove('active');
-    }
-});
+//     if (sidebarBox.classList.contains('active')) {
+//         sidebarBtn.classList.remove('active');
+//         sidebarBox.classList.remove('active');
+//     }
+// });
 
 window.addEventListener('keydown', event => {
 
@@ -223,7 +245,20 @@ window.addEventListener('keydown', event => {
         sidebarBox.classList.remove('active');
     }
 });
+
+  sidebarBox.querySelectorAll('.item').forEach((i) => {
+      console.log(i);
+    i.addEventListener('click', () => {
+      sidebarBox.classList.remove('active');
+      sidebarBtn.classList.remove('active');
+    })
+  })
 </script>
+
+
+
+
+
 
 
 
